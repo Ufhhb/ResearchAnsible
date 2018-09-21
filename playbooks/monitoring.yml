@@ -1,0 +1,7 @@
+- hosts: web
+  become: yes
+
+  roles:
+  - role: dj-wasabi.zabbix-agent
+    zabbix_agent_server: "{{zabbix_server}}"
+    zabbix_agent_serveractive: "{{zabbix_server}}"
