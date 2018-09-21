@@ -1,1 +1,6 @@
 iptables_allowed_tcp_ports: [22,80]
+
+nginx_sites:
+  default:
+    - listen 80
+    - server_name "localhost"
