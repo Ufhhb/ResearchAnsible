@@ -1,6 +1,6 @@
 ---
-- include: base.yml
-- include: service.yml
+- import_playbook: base.yml
+- import_playbook: service.yml
 
 - hosts: web
   become: true
