@@ -4,3 +4,4 @@
 - src: ANXS.postgresql
 - src: git+https://github.com/ChristopherDavenport/ansible-role-universal-tomcat
   version: f0fe23a3b1541cbc60cabe69afe401f3df07d5d3
+- src: dj-wasabi.zabbix-agent
