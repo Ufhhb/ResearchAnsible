@@ -1,0 +1,32 @@
+
+- hosts: localhost
+  gather_facts: False
+
+  vars:
+    instance_name: IGOR
+  vars_files:
+    - vars_aws.yml
+  tasks:
+    - name: create ec2 instances
+      ec2:
+        aws_access_key: "{{access_key}}"
+        aws_secret_key: "{{secret_key}}"
+        key_name: Ansible MC
+        instance_type: t2.micro
+        image: "{{image_id}}"
+        wait: yes
+        region: "{{region}}"
+        instance_tags:
+          Name: "{{instance_name}}"
+        exact_count: 1
+        count_tag:
+          Name: "{{instance_name}}"
+        group_id: "{{security_group_id}}"
+        vpc_subnet_id: "{{subnet_id}}"
+        assign_public_ip: yes
+      register: ec2_facts
+
+    - name: Show ip
+      debug:
+        msg: "{{(ec2_facts.tagged_instances | first).public_ip}}"
+      when: (ec2_facts.tagged_instances | first) is defined

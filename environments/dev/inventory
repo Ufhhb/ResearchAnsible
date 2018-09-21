@@ -1,0 +1,3 @@
+[web]
+IGOR ansible_host=52.19.137.100 ansible_user=ubuntu ansible_private_key_file=id_rsa
+
